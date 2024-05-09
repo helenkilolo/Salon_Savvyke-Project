@@ -152,7 +152,7 @@ section {
 .login-btn {
   top: 5%;
   right: 3%;
-  width: 120px;
+  width: 180px;
   height: 70px;
   font-size: 20px;
   font-weight: 300;
@@ -169,8 +169,8 @@ section {
 
 .signup-btn {
   top: 5%;
-  right: 10%;
-  width: 140px;
+  right: 15%;
+  width: 180px;
   height: 70px;
   font-size: 20px;
   font-weight: 300;
