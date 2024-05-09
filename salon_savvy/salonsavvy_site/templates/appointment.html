@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Form</title>
+    <link rel="stylesheet" href="{% static 'styles/appointment.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div>
+            <h1 class="logo">Salon Savvy Ke</h1>
+        </div>
+        <div>
+            <a href="login" class="nav-link">Login</a>
+            <a href="signup" class="nav-link">Signup</a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="form-container">
+
+            <!-- Appointment form -->
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+
+                {% if error_message %}
+                    <div class="error-message">
+                        <h2>{{ error_message }}</h2>
+                    </div>
+                {% endif %}
+
+                <h2 class="form-title">Appointment Form</h2>
+                <div>
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" id="date" name="date" class="form-input">
+                </div>
+
+                <div>
+                    <label for="start_time" class="form-label">Start Time</label>
+                    <input type="time" id="start_time" name="start_time" class="form-input">
+                </div>
+
+                <div>
+                    <label for="end_time" class="form-label">End Time</label>
+                    <input type="time" id="end_time" name="end_time" class="form-input">
+                </div>
+
+                <div>
+                    <label for="customer_name" class="form-label">Customer Name</label>
+                    <input type="text" id="customer_name" name="customer_name" placeholder="Enter customer name..." class="form-input">
+                </div>
+
+                <div>
+                    <label for="service_type" class="form-label">Service Type</label>
+                    <select id="service_type" name="service_type" class="form-select">
+                        <option value="haircut">Haircut</option>
+                        <option value="coloring">Coloring</option>
+                        <option value="styling">Styling</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="form-button">Schedule Appointment</button>
+            </form>
+
+        </div>
+    </div>
+    <script src="{% static 'scripts/appointment.js' %}"></script>
+</body>
+</html>
+
+
