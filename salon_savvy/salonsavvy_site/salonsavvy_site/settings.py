@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'salonsavvy_site.wsgi:application'
+WSGI_APPLICATION = 'salonsavvy_site.wsgi.application'
 
 
 # Database
