@@ -4,15 +4,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .models import Appointment
+import os
+from django.conf import settings
 from .forms import AppointmentForm
 from django.contrib import messages
 
 # Create your views here.
-@login_required(login_url='login')
+@login_required
 def index(request):
     return render(request, 'index.html')
 
-@login_required
+
 def appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -23,26 +25,6 @@ def appointment(request):
         form = AppointmentForm()
 
     return render(request, 'appointment.html', {'form': form})
-
-
-def my_view(request):
-    if request.method == 'POST':
-        form = MyForm(request.POST)
-        if form.is_valid():
-            # Process the form data
-            # Example: Authenticate user
-            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-            if user is not None:
-                login(request, user)
-                # Redirect to the user's profile page after login
-                return redirect('profile')
-            else:
-                # Invalid credentials
-                messages.error(request, 'Invalid username or password.')
-                return redirect('login')  # Redirect back to the login page
-    else:
-        form = MyForm()
-    return render(request, 'my_template.html', {'form': form})
 
 def user_login(request):
     if request.method == 'POST':
