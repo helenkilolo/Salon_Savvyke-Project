@@ -9,7 +9,6 @@ google-auth==1.35.0
 google-auth-httplib2==0.1.0
 googleapis-common-protos==1.60.0
 pytube==15.0.0
-Start Command
 requests==2.28.2
 starlette==0.26.1
 gunicorn==22.0.0
